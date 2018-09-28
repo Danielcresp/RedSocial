@@ -1,4 +1,4 @@
-BackendBundle\Entity\Notifications:
+BackendBundle\Entity\Notification:
     type: entity
     table: notifications
     indexes:
@@ -45,7 +45,7 @@ BackendBundle\Entity\Notifications:
                 fixed: false
     manyToOne:
         user:
-            targetEntity: Users
+            targetEntity: User
             cascade: {  }
             fetch: LAZY
             mappedBy: null

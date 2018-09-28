@@ -1,4 +1,4 @@
-BackendBundle\Entity\Publications:
+BackendBundle\Entity\Publication:
     type: entity
     table: publications
     indexes:
@@ -45,7 +45,7 @@ BackendBundle\Entity\Publications:
             column: created_at
     manyToOne:
         user:
-            targetEntity: Users
+            targetEntity: User
             cascade: {  }
             fetch: LAZY
             mappedBy: null

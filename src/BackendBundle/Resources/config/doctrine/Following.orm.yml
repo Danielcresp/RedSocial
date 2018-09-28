@@ -19,7 +19,7 @@ BackendBundle\Entity\Following:
                 strategy: IDENTITY
     manyToOne:
         followed:
-            targetEntity: Users
+            targetEntity: User
             cascade: {  }
             fetch: LAZY
             mappedBy: null
@@ -29,7 +29,7 @@ BackendBundle\Entity\Following:
                     referencedColumnName: id
             orphanRemoval: false
         user:
-            targetEntity: Users
+            targetEntity: User
             cascade: {  }
             fetch: LAZY
             mappedBy: null

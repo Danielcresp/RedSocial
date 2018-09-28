@@ -1,4 +1,4 @@
-BackendBundle\Entity\Likes:
+BackendBundle\Entity\Like:
     type: entity
     table: likes
     indexes:
@@ -19,7 +19,7 @@ BackendBundle\Entity\Likes:
                 strategy: IDENTITY
     manyToOne:
         publication:
-            targetEntity: Publications
+            targetEntity: Publication
             cascade: {  }
             fetch: LAZY
             mappedBy: null
@@ -29,7 +29,7 @@ BackendBundle\Entity\Likes:
                     referencedColumnName: id
             orphanRemoval: false
         user:
-            targetEntity: Users
+            targetEntity: User
             cascade: {  }
             fetch: LAZY
             mappedBy: null

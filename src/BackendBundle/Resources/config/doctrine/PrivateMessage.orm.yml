@@ -1,4 +1,4 @@
-BackendBundle\Entity\PrivateMessages:
+BackendBundle\Entity\PrivateMessage:
     type: entity
     table: private_messages
     indexes:
@@ -48,7 +48,7 @@ BackendBundle\Entity\PrivateMessages:
             column: created_at
     manyToOne:
         emitter:
-            targetEntity: Users
+            targetEntity: User
             cascade: {  }
             fetch: LAZY
             mappedBy: null
@@ -58,7 +58,7 @@ BackendBundle\Entity\PrivateMessages:
                     referencedColumnName: id
             orphanRemoval: false
         receiver:
-            targetEntity: Users
+            targetEntity: User
             cascade: {  }
             fetch: LAZY
             mappedBy: null
