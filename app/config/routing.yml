@@ -1,7 +1,12 @@
-backend:
-    resource: "@BackendBundle/Resources/config/routing.yml"
-    prefix:   /
+#en caso de crear nuevosbules se deve quitar las rutas
+# backend:
+#     resource: "@BackendBundle/Resources/config/routing.yml"
+#     prefix:   /
+
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation
 
 app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
