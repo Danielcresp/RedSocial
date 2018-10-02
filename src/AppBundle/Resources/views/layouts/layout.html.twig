@@ -7,9 +7,14 @@
 	</title>
 	{% block stylesheets %}
 		<!-- estilos css -->
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap/css/bootstrap-theme.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/styles.css') }}">
 	{% endblock %}
 	{% block javascripts %}
 		<!-- javascripts -->
+		<script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
 	{% endblock %}	
 </head>
 <body>
@@ -25,6 +30,7 @@
 		<hr>
 		<p>
 			<!-- creacion de redsocial el 18 dias -->
+			creado por yo@no copi
 		</p>
 	</footer>
 </body>
