@@ -56,7 +56,26 @@ class User
      * @var string
      */
     private $image;
-
+    
+    public function getUsername() {
+        return $this->email;
+    }
+    
+    public function getSat() {
+        return null;
+    }
+    
+    public function getRoles() {
+        return $this->getRole();
+    }
+    
+    public function eraseCredentials() {
+        
+    }
+    
+    public function _toString() {
+        return $this->name;
+    }
 
     /**
      * Get id
