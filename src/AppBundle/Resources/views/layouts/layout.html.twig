@@ -8,7 +8,7 @@
 	{% block stylesheets %}
 		<!-- estilos css -->
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap/css/bootstrap-theme.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.cosmo.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/styles.css') }}">
 	{% endblock %}
 	{% block javascripts %}
@@ -19,7 +19,70 @@
 </head>
 <body>
 	<header>
-		<h1>SocialDrilo</h1>
+			<nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Navegación</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{path("app_homepage")}}">
+                            <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+                            NETWORK
+                        </a>
+                    </div>
+                    
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            
+                                <li>
+                                    <a href="{{ path("login") }}">
+                                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                                        &nbsp;
+                                        Entrar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                        &nbsp;
+                                        Registro
+                                    </a>
+                                </li>
+                         
+                                <li>
+                                    <a href="">
+                                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                        &nbsp;
+                                        Inicio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                                        &nbsp;
+                                        Gente
+                                    </a>
+                                </li>
+                                <li>
+                                    <form action="" class="navbar-form navbar-left">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Buscar gente" name="search" />
+                                        </div>
+                                        <button type="submit" class="btn btn-default">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </button>
+                                    </form>
+                                </li>
+                           
+                        </ul>
+                                   
+                           
+                    </div>
+                </div>       
+            </nav>
 	</header>
 	<section id="content">
 		{% block content %}
