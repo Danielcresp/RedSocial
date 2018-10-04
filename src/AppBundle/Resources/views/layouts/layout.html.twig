@@ -6,10 +6,15 @@
 		{% block title %}Red Social{% endblock %}
 	</title>
 	{% block stylesheets %}
-		<!-- estilos css -->
+            <!-- estilos css -->
+            <link href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('assets/css/bootstrap.cosmo.min.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('assets/css/styles.css') }}" type="text/css" rel="stylesheet" />
 	{% endblock %}
 	{% block javascripts %}
 		<!-- javascripts -->
+            <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
 	{% endblock %}	
 </head>
 <body>
