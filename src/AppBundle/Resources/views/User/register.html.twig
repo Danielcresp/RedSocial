@@ -1,10 +1,20 @@
 {% extends 'AppBundle:layouts:layout.html.twig' %}
 {% block content %}
-	<div class="col-lg-8 box-form">
-		<h2>Register</h2>
-		<hr/>
-		{{form_start(form, {'action':'','method':'POST'})}}
-		{{form_errors(form)}}
-		{{form_end(form)}}
+	<div class="container">
+		<div class="register col-lg-12">
+		<div class="col-lg-4 regisTxt">
+			<h1>Binvenido a SocialTecnicos</h1>
+			<hr>
+			<h3>Registrate</h3>
+            <button class="btn btn-primary">Registrate</button> 
+		</div>
+		<div class="col-lg-5 box-form">
+			<h2>Registrate</h2>
+			<hr/>
+			{{form_start(form, {'action':'','method':'POST'})}}
+			{{form_errors(form)}}
+			{{form_end(form)}}
+		</div>	
+	</div>
 	</div>
 {% endblock %}

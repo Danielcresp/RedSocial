@@ -57,26 +57,27 @@ class User
      */
     private $image;
     
-    public function getUsername() {
-        return $this->email;
-    }
-    
-    public function getSat() {
-        return null;
-    }
-    
-    public function getRoles() {
-        return $this->getRole();
-    }
-    
-    public function eraseCredentials() {
-        
-    }
-    
-    public function _toString() {
-        return $this->name;
-    }
+       public function getUsername(){ //user name lo obttendra de email
+		return $this->email;//que campo actua como Username
+	}
+	
+	public function getSalt(){
+		return null;
+	}
+	
+	public function getRoles(){ //Roles 
+		return array('ROLE_USER',
+                             'ROLE_ADMIN');
+	}
+	
+	public function eraseCredentials(){
+		
+	}
 
+	public function __toString() { //convertir a String 
+		return $this->name;
+	}
+	
     /**
      * Get id
      *
