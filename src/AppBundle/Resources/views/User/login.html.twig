@@ -1,4 +1,30 @@
 {% extends 'AppBundle:layouts:layout.html.twig' %}
 {% block content %}
-	<h1>Red Social la</h1>
+	<div class="container">
+		<div class="login col-lg-12">
+			<div class="col-lg-4 regisTxt">
+				<h1>Binvenido a SocialTecnicos</h1>
+				<hr>
+				<h3>Unete a nuestra Red</h3>
+	            <button href="{{path("register")}}" class="btn btn-primary">Registrate</button>
+			</div>
+			<div class="col-lg-4 box-form">
+				<h1>Identificarse</h1>
+				<hr>
+				{% if is_granted('ROLE_USER') %}
+		            {{ dump(app.user) }} <!-- ver los atributos del objeto user -->
+		        {% endif %}
+				<form action="{{ path('login_check')}}" method="POST">
+					<label>Email</label>
+					<input type="email" id="username" name="_username" value="{{ last_username }}" class="form-control">
+					<br>
+					<label>Contraseña</label>
+					<input type="password" id="password" name="_password" class="form-control">
+					<br>
+					<input type="submit" value="Entrar" class="btn btn-success">
+					<input type="hidden" name="_target_path" value="/home">
+				</form>
+			</div>		
+	    </div>
+	</div>
 {% endblock %}

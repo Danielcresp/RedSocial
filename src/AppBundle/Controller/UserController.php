@@ -21,9 +21,20 @@ class UserController extends Controller
    }
     
     public function loginAction (Request $request){
+
+        if (is_object($this->getUser())) { /*si el objeto getUser debuelve un objeto (esta logeado)*/
+            return $this->redirect('home'); /*que retorne a home*/
+        }
+
+        $authenticationUtils = $this->get('security.authentication_utils'); /*carga el servicio de autenticacion*/
+        $error = $authenticationUtils->getLastAuthenticationError(); /*obtiene dato si sucede un error*/
+        $lastUsername = $authenticationUtils->getLastUsername(); /*saca la informacion si falla si logea*/
+
         
-        return $this->render('AppBundle:User:login.html.twig',
-                array("titulo"=>"Tenia que hacer una red social"));
+        return $this->render('AppBundle:User:login.html.twig', array(
+                    'last_username' => $lastUsername, /*enviar a la vista la autenticacion*/
+                    'error' => $error /*envia los errores a la vista*/
+        ));
     }
     
     
