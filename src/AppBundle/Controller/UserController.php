@@ -5,7 +5,9 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;//para el nick
 use Symfony\Component\HttpFoundation\Session\Session;
+
 
 use BackendBundle\Entity\User;
 use AppBundle\Form\RegisterType;
@@ -83,5 +85,21 @@ class UserController extends Controller
                 array(
                     "form"=> $form->createView()
                 ));
+    }
+    public function nickTestAction(Request $request) {
+	$nick = $request->get("nick");//obtener del request en nick 
+
+	$em = $this->getDoctrine()->getManager();//para hacer la consulta en la DB
+	$user_repo = $em->getRepository("BackendBundle:User");//para hacer la consulta en la DB
+	$user_isset = $user_repo->findOneBy(array("nick" => $nick));//consulta si nick es igual
+
+	$result = "used";
+	if (count($user_isset) >= 1 && is_object($user_isset)) {
+		$result = "used";
+	} else {
+		$result = "unused";//respuesta si esta o no usado
+	}
+
+	return new Response($result);//manda el resultado si esta o no usado
     }
 }

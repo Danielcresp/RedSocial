@@ -13,6 +13,9 @@
 	{% endblock %}
 	{% block javascripts %}
 		<!-- javascripts -->
+		<script type="text/javascript">
+		var URL = "{{ app.request.getSchemeAndHttpHost () }}";
+		</script>
 		<script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
 	{% endblock %}	

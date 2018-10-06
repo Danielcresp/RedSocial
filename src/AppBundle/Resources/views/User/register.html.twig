@@ -1,4 +1,8 @@
 {% extends 'AppBundle:layouts:layout.html.twig' %}
+{% block javascripts %}
+	{{ parent() }} <!-- cargar los javascript del layout principal -->
+     <script type="text/javascript" src="{{ asset('assets/js/custom/nick-test.js') }}"></script><!-- incluye le nuevo js -->
+{% endblock %}
 {% block content %}
 	<div class="container">
 		<div class="register col-lg-12">
