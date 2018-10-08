@@ -7,7 +7,7 @@
 	</title>
 	{% block stylesheets %}
 		<!-- estilos css -->
-		<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap/css/bootstrap.min.ss') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.cosmo.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/styles.css') }}">
 	{% endblock %}
@@ -22,87 +22,86 @@
 </head>
 <body>
 	<header>
-			<nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Navegación</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{path("app_homepage")}}">
-                            <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
-                           RedSocial
-                        </a>
-                    </div>
-                    
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                             {% if app.user == null %} <!-- no mostrar el menu si esta logeado -->
-                                  <li>
-                                      <a href="{{path("login")}}">
-                                          <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-                                          &nbsp;
-                                          Entrar
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">RedSocial</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          {% if app.user == null %} <!-- no mostrar el menu si esta logeado -->
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{{path("login")}}">Entrar <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{path("register")}}">Registro</a>
+                  </li>
+               </ul>
+         {% endif %}
+
+       <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+         {% if app.user !=null %} <!-- verifica si es cliente esta logeado -->
+
+          
+          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  <button type="button" class="btn btn-primary">Primary</button>
+  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" href="#">Dropdown link</a>
+      <a class="dropdown-item" href="#">Dropdown link</a>
+    </div>
+  </div>
+</div>
+                  <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                {{app.user.name}} {{app.user.surname}}
+                                <span class="caret"></span>
+                            </a>
+                                  <ul class="dropdown-menu">
+                                    <li>
+                                      <a href="">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp;
+                                        Mis perfil
                                       </a>
-                                  </li>
-                                  <li>
-                                      <a href="{{path("register")}}">
-                                          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                          &nbsp;
-                                          Registro
+                                    </li>
+                                    <li>
+                                      <a href="">
+                                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp;
+                                        Mis datos
                                       </a>
-                                  </li>
-                               {% endif %}
-                          </ul>
-                          {% if app.user !=null %} <!-- verifica si es cliente esta logeado -->
-                              <ul class="nav navbar-nav navbar-right">
-                              	<li class="dropdown">
-                              		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                              		{{app.user.name}} {{app.user.surname}}
-                              		<span class="caret"></span>
-                              		</a>
-                              		<ul class="dropdown-menu">
-                              			<li>
-                              				<a href="">
-                              					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp;
-                              					Mis perfil
-                              				</a>
-                              			</li>
-                              			<li>
-                              				<a href="">
-                              					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp;
-                              					Mis datos
-                              				</a>
-                              			</li>
-                              			<li role"separator" class="divider"></li>
-                              			<li>
-                              				<a href="{{ path("logout")}}"> <!-- salir de session -->
-                              					<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp;
-                              					Salir
-                              				</a>
-                              				</li>
-                              			<li>
-                              				<a href="">
-                              					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> &nbsp;
-                              					Ayuda
-                              				</a>
-                              			</li>
-                              		</ul>
-                              	</li>
-                              </ul>         	
-                          {% endif %}                              
-                    </div>
-                </div>       
-            </nav>
+                                    </li>
+                                    <li role"separator" class="divider"></li>
+                                    <li>
+                                      <a href="{{ path("logout")}}"> <!-- salir de session -->
+                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp;
+                                        Salir
+                                      </a>
+                                      </li>
+                                    <li>
+                                      <a href="">
+                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> &nbsp;
+                                        Ayuda
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                      
+                          {% endif %}
+                      </div>
+                  </div>       
+             </div>
+         </nav>
 	</header>
 	<section id="content">
 		<div class="container">
 			<div class="col-lg-11">
 				{%for message in app.session.flashbag().get('status')%}
-                        <div class="alert alert-success">{{message}}</div>
-                {%endfor%}
+             <div class="alert alert-success">{{message}}</div>
+        {%endfor%}
 			</div>
 		</div>
 		<div class="clearfix"></div>
@@ -110,15 +109,5 @@
 			<!-- contenido -->
 		{% endblock %}
 	</section>
-	<footer class="col-lg-12">
-		<hr>
-			<div class="container">
-				<p class="text-muted">
-					creado por yo@no copi
-			    </p>
-			</div>
-			<!-- creacion de redsocial el 18 dias -->
-		</p>
-	</footer>
 </body>
 </html>
