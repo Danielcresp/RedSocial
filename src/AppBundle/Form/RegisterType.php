@@ -56,7 +56,7 @@ class RegisterType extends AbstractType
                 ))
                 ->add('Registrarse', SubmitType::class, array(
                     "attr" => array(
-                        "class"=>"form-submit btn btn-surccess"
+                        "class"=>"form-submit btn btn-success"
                     )
                 ));
                 

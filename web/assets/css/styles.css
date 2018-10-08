@@ -23,9 +23,10 @@ body{
 	background: white;
 	border: 1px solid #ccc;
 	padding: 20px;
-	padding-top: 0px;
+	padding-top: 50px;
 	margin: 0px auto;
 	float: right;
+	margin-top: 20px;
 
 }
 .box-form input{
