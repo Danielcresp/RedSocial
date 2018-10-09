@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 use BackendBundle\Entity\User;
 use AppBundle\Form\RegisterType;
+use AppBundle\Form\UserType;
+
 
 class UserController extends Controller
 {
@@ -116,7 +118,11 @@ class UserController extends Controller
     }
 
     public function editUserAction(Request $request) {
+
+        $user = $this->getUser(); /*obtine el objeto del usuario ya logeado*/
+        $form = $this->createForm(UserType::class, $user); /*se obtinen los datos del usuario y se meten al formulario*/
         return $this->render('AppBundle:User:edit_user.html.twig', array(
+            "form" => $form->createView() /*se genera el formulario en la vista*/
         ));
     }
 

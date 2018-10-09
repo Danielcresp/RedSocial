@@ -1,4 +1,13 @@
 {% extends 'AppBundle:layouts:layout.html.twig' %}
 {% block content %}
-	<h1>mis datos</h1>
+	<div class="container col-lg-8">
+		<div class="box-form">
+			<h2>Mis Datos</h2>
+			<hr/>
+			{{form_start(form, {'enctype':'multipart/form-data'})}} <!-- se le reconoce que enviara datos -->
+			{{form_end(form)}}
+
+		</div>
+	</div>
+	
 {% endblock %}
