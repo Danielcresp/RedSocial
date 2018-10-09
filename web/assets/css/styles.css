@@ -33,3 +33,20 @@ body{
 .fromulario{
 	float: right;
 }
+
+/* imagen */
+.navbar-collapse .avatar{
+	background: white;
+	border-radius: 500px;
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	float: left;
+	margin-right: 12px;
+	margin-top: -7px; 
+}
+
+.navbar-collapse .avatar img {
+	height: 100%;
+	text-alingn:center;
+}

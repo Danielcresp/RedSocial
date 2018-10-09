@@ -10,11 +10,11 @@
 			</div>
 			<div class="col-lg-6">
 				<div class="">
-			        {{form_start(form, {'enctype':'multipart/form-data'})}} <!-- se le reconoce que enviara datos -->
+			        {{form_start(form, {'enctype':'multipart/form-data'})}}<!-- se le reconoce que enviara datos -->
+			        {{form_errors(form)}}
 			        {{form_end(form)}}
 		        </div>
 			</div>
 		</div>
-	</div>
-	
+	</div>	
 {% endblock %}
