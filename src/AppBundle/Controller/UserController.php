@@ -97,6 +97,7 @@ class UserController extends Controller
                     "form"=> $form->createView()
                 ));
     }
+
     public function nickTestAction(Request $request) {
 	$nick = $request->get("nick");//obtener del request en nick 
 
@@ -113,4 +114,10 @@ class UserController extends Controller
 
 	return new Response($result);//manda el resultado si esta o no usado
     }
+
+    public function editUserAction(Request $request) {
+        return $this->render('AppBundle:User:edit_user.html.twig', array(
+        ));
+    }
+
 }

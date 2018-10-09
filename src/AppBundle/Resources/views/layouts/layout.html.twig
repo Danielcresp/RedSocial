@@ -25,7 +25,7 @@
 	<header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
-          <a class="navbar-brand" href="#">RedSocial</a>
+          <a class="navbar-brand" href="{{ path("home_publications")}}">RedSocial</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,7 +55,7 @@
                              <ion-icon name="person"></ion-icon>&nbsp;
                              Mis perfil
                            </a>
-                           <a class="dropdown-item" href="#">
+                           <a class="dropdown-item" href="{{ path("user_edit")}}">
                              <ion-icon name="archive"></ion-icon>
                              Mis datos
                            </a>
