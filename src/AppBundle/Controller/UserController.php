@@ -126,9 +126,7 @@ class UserController extends Controller {
                     /* Actualiza la imagen */
                     $file = $form["image"]->getData(); /* captura la imagen del fromulario */
 
-                    var_dump($file);
-                    die();
-
+    
                     if (!empty($file) && $file != null) { /* si no esta vacia y file no esta null */
                         $ext = $file->guessExtension(); /* obtener el tipo de extencion de la imagen */
 
@@ -164,6 +162,24 @@ class UserController extends Controller {
         }
         return $this->render('AppBundle:User:edit_user.html.twig', array(
                     "form" => $form->createView() /* se genera el formulario en la vista */
+        ));
+    }
+
+    public function usersAction(Request $request) {
+        echo "Hola";
+        die();
+        $em = $this->getDoctrine()->getManager();
+
+        $dql = "SELECT u FROM BackendBundle:User u ORDER BY u.id ASC";
+        $query = $em->createQuery($dql);
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $query, $request->query->getInt('page', 1), 5
+        );
+
+        return $this->render('AppBundle:User:users.html.twig', array(
+                    'pagination' => $pagination
         ));
     }
 
