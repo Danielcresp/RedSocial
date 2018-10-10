@@ -166,16 +166,14 @@ class UserController extends Controller {
     }
 
     public function usersAction(Request $request) {
-        echo "Hola";
-        die();
         $em = $this->getDoctrine()->getManager();
 
-        $dql = "SELECT u FROM BackendBundle:User u ORDER BY u.id ASC";
+        $dql = "SELECT u FROM BackendBundle:User u ORDER BY u.id ASC";/* consulta a la DB con dql*/
         $query = $em->createQuery($dql);
 
-        $paginator = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator'); /*servicio de knp_paginator*/
         $pagination = $paginator->paginate(
-                $query, $request->query->getInt('page', 1), 5
+                $query, $request->query->getInt('page', 1), 5 /*5 registros por pagina*/
         );
 
         return $this->render('AppBundle:User:users.html.twig', array(
