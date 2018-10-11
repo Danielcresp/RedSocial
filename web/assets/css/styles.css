@@ -50,3 +50,26 @@ body{
 	height: 100%;
 	text-alingn:center;
 }
+
+/* GENTE */
+
+.user-item .avatar{
+	background: #eee;
+	border-radius: 550px;
+	width: 75px;
+	height: 75px;
+	overflow: hidden;
+	/* float: left; */
+
+}
+
+.user-item .avatar img{
+	height:  100%;
+	text-align: center;
+}
+
+.user-item .user-item-content,
+.publication-item .publication-item-content{
+    padding:10px;
+    /* margin-left: 85px; */
+}
