@@ -1,4 +1,9 @@
 {% extends 'AppBundle:layouts:layout.html.twig' %}
+{% block javascripts %}
+	{{parent() }}
+	<script type="text/javascript" src="{{ asset('assets/js/custom/users.js') }}"></script>
+	
+{% endblock %}
 {% block content %}
 	<div class="container">
 		<div class="col-lg-12 box-form">

@@ -4,7 +4,7 @@
 
     {% if previous is defined %}
         <li class="page-item" >
-            <a class="page-link" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ ''|trans({}, 'KnpPaginatorBundle') }}</a>
+            <a class="page-link prev_link" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ ''|trans({}, 'KnpPaginatorBundle') }}</a>
         </li>
     {% else %}
         <li class="disabled page-item">
@@ -59,7 +59,7 @@
 
     {% if next is defined %}
         <li class="page-item" >
-            <a class="page-link" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ ''|trans({}, 'KnpPaginatorBundle') }}&nbsp;&raquo;</a>
+            <a class="page-link next_link" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ ''|trans({}, 'KnpPaginatorBundle') }}&nbsp;&raquo;</a>
         </li>
     {% else %}
         <li class="page-item" >
