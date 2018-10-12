@@ -121,7 +121,7 @@ class UserController extends Controller {
 
                 $user_isset = $query->getResult(); //verifica si el usuario ya esta registrado
 
-                if (($user->getEmail() == $user_isset[0]->getEmail() && $user->getNick() == $user_isset[0]->getNick() ) || count($user_isset) == 0) { //si el usuario es nuevo se ejecuta el codigo y si son iguales el email el nick al usuario en la base de datos que perimita modificarlos
+                if (count($user_isset) == 0 || ($user->getEmail() == $user_isset[0]->getEmail() && $user->getNick() == $user_isset[0]->getNick())) { //si el usuario es nuevo se ejecuta el codigo y si son iguales el email el nick al usuario en la base de datos que perimita modificarlos
 
                     /* Actualiza la imagen */
                     $file = $form["image"]->getData(); /* captura la imagen del fromulario */
@@ -180,5 +180,28 @@ class UserController extends Controller {
                     'pagination' => $pagination
         ));
     }
+    public function searchAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+
+        $search = trim($request->query->get("search", null));
+
+        if ($search == null) {
+            return $this->redirect($this->generateURL('home_publications'));
+        }
+
+        $dql = "SELECT u FROM BackendBundle:User u "
+                . "WHERE u.name LIKE :search OR u.surname LIKE :search "
+                . "OR u.nick LIKE :search ORDER BY u.id ASC"; /*la busqueda*/
+        $query = $em->createQuery($dql)->setParameter('search', "%$search%"); /*une el contedido de la busqueda*/
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $query, $request->query->getInt('page', 1), 5
+        );
+        return $this->render('AppBundle:User:users.html.twig', array(
+                    'pagination' => $pagination
+        ));
+    }
+    
 
 }
