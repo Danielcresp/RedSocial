@@ -46,4 +46,29 @@ class FollowingController extends Controller {
 
 		return new Response($status); /*Se retorna la respueta a la peticion ajax*/
 	}
+
+	 public function unfollowAction(Request $request) {
+		$user = $this->getUser();  /*obtine al usuario logeado*/
+		$followed_id = $request->get('followed');/*el id del usuario a segir extraido*/
+
+		$em = $this->getDoctrine()->getManager(); //para hacer la consulta en la DB
+
+        $following_repo = $em->getRepository("BackendBundle:Following"); //para hacer la consulta en la DB
+        $followed = $following_repo->findOneBy(array( /*Saca de la tabla following los datos que */
+        	     "user"=>$user,  /*user sea igual a la variable obtenida*/
+        	     "followed"=>$followed_id /*folloved sea igual a la variable obtenida*/
+        ));
+
+		$em->remove($followed); /*se remueve los objetos en la base de datos*/
+
+		$flush = $em->flush(); /*se meten xd los datos a la DB*/
+
+		if ($flush == null) { /*Si flush no debuelve ningun error*/
+			$status = "Ahora dejado de siguir a este usuario !!";
+		} else {
+			$status = "No se ha podido dejar de seguir a este usuario !!";
+		}
+
+		return new Response($status); /*Se retorna la respueta a la peticion ajax*/
+	}
 }

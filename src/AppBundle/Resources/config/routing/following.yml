@@ -3,3 +3,8 @@ following_follow:
     defaults: { _controller: AppBundle:Following:follow }
     methods: [POST] #solo permitira que se pueda accerder a la ruta con metodo POST
 
+following_unfollow:
+    path: /unfollow
+    defaults: { _controller: AppBundle:Following:unfollow }
+    methods: [POST] #solo permitira que se pueda accerder a la ruta con metodo POST
+

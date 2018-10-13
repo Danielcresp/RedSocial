@@ -46,4 +46,15 @@ function followButtons(){
 			}
 		});
 	});
+		$(".btn-unfollow").unbind("click").click(function(){
+		$.ajax({
+			url: URL+'/unfollow', /*se define la url*/
+			type: 'POST', /*se define cual es metodo*/
+			data: { /*se envia los datos*/
+				followed: $(this).attr("data-followed")}, /*se obtiene el valor del atributo css*/
+			success: function(response){ /*se obtine la notificasion*/
+			console.log(response); /*se muestra en consola el mensaje de confirmacion*/
+			}
+		});
+	});
 }
