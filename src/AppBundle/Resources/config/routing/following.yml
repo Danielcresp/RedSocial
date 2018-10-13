@@ -1,0 +1,5 @@
+following_follow:
+    path: /follow
+    defaults: { _controller: AppBundle:Following:follow }
+    # methods: [POTS] #solo permitira que se pueda accerder a la ruta con metodo POST 
+    #error al meter el metodo POST por eso se quito

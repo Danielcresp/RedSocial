@@ -21,4 +21,29 @@ $(document).ready(function() {
 		text: 'No hay más personas'
 	}));
 
+	ias.on('ready', function(event){
+		followButtons();
+	});
+	
+	ias.on('rendered', function(event){
+		followButtons();
+	});
+
 });
+
+function followButtons(){
+
+	$(".btn-follow").unbind("click").click(function(){
+/*		 $id = $(this).attr("data-followed"),
+		console.log("Hola humano has accedido al boton ="+ $id);*/
+		$.ajax({
+			url: URL+'/follow', /*se define la url*/
+			type: 'POST', /*se define cual es metodo*/
+			data: { /*se envia los datos*/
+				followed: $(this).attr("data-followed")}, /*se obtiene el valor del atributo css*/
+			success: function(response){ /*se obtine la notificasion*/
+			console.log(response); /*se muestra en consola el mensaje de confirmacion*/
+			}
+		});
+	});
+}
