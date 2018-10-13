@@ -73,3 +73,6 @@ body{
     padding:10px;
     /* margin-left: 85px; */
 }
+.hidden{
+	visibility: hidden
+}

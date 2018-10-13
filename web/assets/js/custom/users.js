@@ -34,6 +34,11 @@ $(document).ready(function() {
 function followButtons(){
 
 	$(".btn-follow").unbind("click").click(function(){
+		$(this).addClass("hidden");
+		$(this).parent().find(".btn-unfollow").removeClass("hidden");
+
+/*		$(this).addAttr('hidden');*/
+		//$(this).parent().find(".btn-unfollow").removeAttr('hidden');
 /*		 $id = $(this).attr("data-followed"),
 		console.log("Hola humano has accedido al boton ="+ $id);*/
 		$.ajax({
@@ -46,7 +51,12 @@ function followButtons(){
 			}
 		});
 	});
-		$(".btn-unfollow").unbind("click").click(function(){
+
+	$(".btn-unfollow").unbind("click").click(function(){
+		$(this).addClass("hidden");
+		$(this).parent().find(".btn-follow").removeClass("hidden");
+	/*	$(this).addAttr('hidden');*/
+		//$(this).parent().find(".btn-follow").removeAttr('hidden');
 		$.ajax({
 			url: URL+'/unfollow', /*se define la url*/
 			type: 'POST', /*se define cual es metodo*/
