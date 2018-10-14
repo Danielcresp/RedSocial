@@ -173,13 +173,14 @@ class UserController extends Controller {
 
         $paginator = $this->get('knp_paginator'); /*servicio de knp_paginator*/
         $pagination = $paginator->paginate(
-                $query, $request->query->getInt('page', 1), 5 /*5 registros por pagina*/
+                $query, $request->query->getInt('page', 1), 16 /*10 registros por pagina*/
         );
 
         return $this->render('AppBundle:User:users.html.twig', array(
                     'pagination' => $pagination
         ));
     }
+
     public function searchAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
 

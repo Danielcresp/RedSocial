@@ -1,19 +1,31 @@
 $(document).ready(function() {
 
+	/*$(".page-link").unbind("click").click(function(){
+			alert("Pagination");
+
+		var ias = jQuery.ias({ los iten a paginar son 
+			container: '.box-users',
+			item: '.user-item',
+			pagination: '.pagination',
+			next: '.pagination .next_link',
+			triggerPageThreshold: 12 pide la peticion a ajax cada 
+		});
+	});*/
+
 	var ias = jQuery.ias({ /*los iten a paginar son */
 		container: '.box-users',
 		item: '.user-item',
 		pagination: '.pagination',
 		next: '.pagination .next_link',
-		triggerPageThreshold: 5 /*pide la peticion a ajax cada 5*/
+		triggerPageThreshold: 12 /*pide la peticion a ajax cada 5 */
 	});
 	
-	ias.extension(new IASTriggerExtension({  /*en caso de que se pasa 3 paginaciones saldra*/
+	ias.extension(new IASTriggerExtension({  /*en caso de que se pasa 3 paginaciones saldra */
 		text: 'Ver más personas',
 		offset: 3
 	}));
 	
-	ias.extension(new IASSpinnerExtension({  /*imagen de carga el efecto*/
+	ias.extension(new IASSpinnerExtension({  /*imagen de carga el efecto */
 		src: URL+'/../assets/images/loader-1.gif' /*direccion del gif*/
 	}));
 	
