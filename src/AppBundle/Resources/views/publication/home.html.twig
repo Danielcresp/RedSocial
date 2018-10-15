@@ -1,6 +1,194 @@
 {% extends 'AppBundle:layouts:layout.html.twig' %}
 {% block content %}
-	<div class="container">
-        <p>Welcome</p>
-	</div>
+<!--     <div class="container">
+        <div class="row">
+            <div id="timeline" class="col-lg-7 box-form timeline pull-left">
+                <h1 class="box-header">Timeline</h1>
+                <div class="box-content">
+                    Publicasiones List
+                </div>
+           </div>
+           <div id="user-card" class="col-lg-4 pull-right box-form">
+               <div class="avatar">
+                       {%if app.user.image == null %}
+                           <img src="{{ asset('assets/images/default.png')}}" />
+                       {%else%}
+                           <img src="{{ asset('uploads/users/'~app.user.image)}}" />
+                       {%endif%}
+                </div>
+                 <div class="name-surname">
+                <a href="">
+                    {{app.user.name}} {{app.user.surname}}
+                </a>
+                <div class="clearfix"></div>
+                <span class="nickname">
+                    {{app.user.nick}}
+                </span>
+            </div>
+
+            <div class="clearfix"></div>
+                 
+            </div>
+
+            <div id="new-publication" class="col-lg-4 pull-left box-form">
+            <h1 class="box-header">Crear publicación</h1>
+           </div>
+        </div>
+   </div> -->
+   <div class="main-section"> <!-- color #2196F3 -->
+                <div class="container">
+                    <div class="main-section-data">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 pd-left-none no-pd">
+                                <div class="main-left-sidebar no-margin">
+                                    <div class="user-data full-width">
+                                        <div class="user-profile">
+                                            <div class="username-dt">
+                                                <div class="usr-pic">
+                                                    <img src="{{ asset('uploads/users/'~app.user.image)}}" />
+                                                </div>
+                                            </div><!--username-dt end-->
+                                            <div class="user-specs">
+                                                <h3> {{app.user.name}} {{app.user.surname}}</h3>
+                                                <span> {{app.user.nick}} </span>
+                                            </div>
+                                        </div><!--user-profile end-->
+                                        <ul class="user-fw-status">
+                                            <li>
+                                                <!-- <h4>Siguiendo</h4>
+                                                <span>34</span> -->
+                                            </li>
+                                            <li>
+                                                <!-- <h4>Seguidores</h4>
+                                                <span>155</span> -->
+                                            </li>
+                                            <li>
+                                                <a href="#" title="">Ver Perfil</a>
+                                            </li>
+                                        </ul>
+                                    </div><!--user-data end-->
+                                    <div class="suggestions full-width">
+                                        <div class="sd-title">
+                                            <h3>Sugerencias</h3>
+                                            <i class="la la-ellipsis-v"></i>
+                                        </div><!--sd-title end-->
+                                        <div class="suggestions-list">
+                                            <div class="suggestion-usd">
+                                                <img src="images/resources/s1.png" alt="">
+                                                <div class="sgt-text">
+                                                    <h4>{{app.user.name}}</h4>
+                                                    <span>{{app.user.bio}}</span>
+                                                </div>
+                                                <span><i class="la la-plus"></i></span>
+                                            </div>
+                                            <div class="view-more">
+                                                <a href="#" title="">Ver Mas</a>
+                                            </div>
+                                        </div><!--suggestions-list end-->
+                                    </div><!--suggestions end-->
+                                    
+                                </div><!--main-left-sidebar end-->
+                            </div>
+                            <div class="col-lg-6 col-md-8 no-pd">
+                                <div class="main-ws-sec">
+                                    <div class="post-topbar">
+                                        <div class="user-picy">
+                                             <img src="{{ asset('uploads/users/'~app.user.image)}}" />
+                                        </div>
+                                        <div class="post-st">
+                                            <ul>
+                                                <!-- <li><a class="post_project" href="#" title="">Publica</a></li>
+                                                <li><a class="post-jb active" href="#" title="">Post </a></li> -->
+                                            </ul>
+                                        </div><!--post-st end-->
+                                    </div><!--post-topbar end-->
+                                    <div class="posts-section">
+                                        <div class="post-bar">
+                                            <div class="post_topbar">
+                                                <div class="usy-dt">
+                                                     <img style=" width: 50px; height: 50px;" src="{{ asset('uploads/users/'~app.user.image)}}" />
+                                                    <div class="usy-name">
+                                                        <h3>{{app.user.name}} {{app.user.surname}}</h3>
+                                                        <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ed-opts">
+                                                    <a href="#" title="" class="ed-opts-open"><ion-icon name="more"></ion-icon></i></a>
+                                                    <ul class="ed-options">
+                                                        <li><a href="#" title="">Edit Post</a></li>
+                                                        <li><a href="#" title="">Unsaved</a></li>
+                                                        <li><a href="#" title="">Unbid</a></li>
+                                                        <li><a href="#" title="">Close</a></li>
+                                                        <li><a href="#" title="">Hide</a></li>
+                                                    </ul>
+                                                        <!-- <ul class="nav navbar-nav ml-auto">
+                                                         <li class="nav-item dropdown">
+                                                        
+                                                            <ion-icon name="more"></ion-icon>
+                                                                 <a class="text-light nav-link dropdown-toggle ed-opts-open" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                                                 </a>
+                                                                 <div class="dropdown-menu ed-options">
+                                                                   <a class="dropdown-item" href="#">
+                                                                    Edit Post
+                                                                   </a>
+                                                                   <a class="dropdown-item" href="">
+                                                                    Unsaved
+                                                                   </a>
+                                                                   <a class="dropdown-item" href="">
+                                                                     <ion-icon name="log-in"></ion-icon>
+                                                                     Salir
+                                                                   </a>
+                                                             </div>
+                                                           </li> 
+                                                                                                              </ul> -->
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="job_descp">
+                                                <h3>Hora</h3>
+                                                <p>Tengo Sueño... <a href="#" title="">ver mas</a></p>
+                                            </div>
+
+                                            <div class="job-status-bar">
+                                                <ul class="like-com">
+                                                    <li>
+                                                        <a href="#"><ion-icon name="star-outline"></ion-icon></i>Star</a>
+                                                        <span>25</span>
+                                                    </li> 
+                                                    <li><a href="#" title="" class="com"><ion-icon name="chatboxes"></ion-icon> Comment 15</a></li>
+                                                </ul>
+                                                <a><ion-icon name="eye"></ion-icon>Vistos 50</a>
+                                            </div>
+                                        </div><!--post-bar end-->
+    
+                                    </div><!--posts-section end-->
+                                </div><!--main-ws-sec end-->
+                            </div>
+                            <div class="col-lg-3 pd-right-none no-pd">
+                                <div class="right-sidebar">
+                                    <div class="widget suggestions full-width">
+                                        <div class="sd-title">
+                                            <h3>Encuentra mas personas</h3>
+                                            <i class="la la-ellipsis-v"></i>
+                                        </div><!--sd-title end-->
+                                        <div class="suggestions-list">
+                                            <div class="suggestion-usd">
+                                                <img src="images/resources/s1.png" alt="">
+                                                <div class="sgt-text">
+                                                    <h4>{{app.user.name}}</h4>
+                                                    <span>Graphic Designer</span>
+                                                </div>
+                                                <span><i class="la la-plus"></i></span>
+                                            </div>
+                                            <div class="view-more">
+                                                <a href="#" title="">Ver Mas</a>
+                                            </div>
+                                        </div><!--suggestions-list end-->
+                                    </div>
+                                </div><!--right-sidebar end-->
+                            </div>
+                        </div>
+                    </div><!-- main-section-data end-->
+                </div> 
+            </div>
 {% endblock %}
