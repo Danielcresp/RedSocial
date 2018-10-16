@@ -106,10 +106,10 @@
                                                </li>
                                                 <!-- <li><a class="post_project" href="#" title="">Publica</a></li>
                                                 <li><a class="post-jb active" href="#" title="">Post </a></li> -->
-
                                             </ul>
                                         </div><!--post-st end-->
                                     </div><!--post-topbar end-->
+                                {% for publication in pagination %}
                                     <div class="posts-section">
                                         <div class="post-bar">
                                             <div class="post_topbar">
@@ -154,7 +154,7 @@
                                             
                                             <div class="job_descp">
                                                 <h3>Hora</h3>
-                                                <p>Tengo Sueño... <a href="#" title="">ver mas</a></p>
+                                                <p>{{publication.text}} &nbsp<a href="#" title="">ver mas</a></p>
                                             </div>
 
                                             <div class="job-status-bar">
@@ -170,8 +170,15 @@
                                         </div><!--post-bar end-->
     
                                     </div><!--posts-section end-->
-                                </div><!--main-ws-sec end-->
+                                    {% endfor %}
+                                    <div class="job-status-bar">
+                                        <div class="navigation">
+                                            {{ knp_pagination_render(pagination) }}
+                                        </div>
+                                  </div>
+                              </div><!--main-ws-sec end-->
                             </div>
+                        
                             <div class="col-lg-3 pd-right-none no-pd">
                                 <div class="right-sidebar">
                                     <div class="widget suggestions full-width">
