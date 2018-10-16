@@ -91,14 +91,22 @@
                             </div>
                             <div class="col-lg-6 col-md-8 no-pd">
                                 <div class="main-ws-sec">
-                                    <div class="post-topbar">
-                                        <div class="user-picy">
+                                    <div class="post-topbar">             
+                                        <div class="user-picy ml-5">
                                              <img src="{{ asset('uploads/users/'~app.user.image)}}" />
+                                         <div class="post mt-4">
+                                           <h4>Crear tu publicación</h4>
+                                        </div>
                                         </div>
                                         <div class="post-st">
                                             <ul>
+                                                <li class="mr-5">
+                                                {{ form_start (form,{action:'','method':'POST'}) }}
+                                                {{ form_end (form)}}
+                                               </li>
                                                 <!-- <li><a class="post_project" href="#" title="">Publica</a></li>
                                                 <li><a class="post-jb active" href="#" title="">Post </a></li> -->
+
                                             </ul>
                                         </div><!--post-st end-->
                                     </div><!--post-topbar end-->
