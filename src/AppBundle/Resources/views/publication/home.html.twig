@@ -45,7 +45,11 @@
                                         <div class="user-profile">
                                             <div class="username-dt">
                                                 <div class="usr-pic">
-                                                    <img src="{{ asset('uploads/users/'~app.user.image)}}" />
+                                                   {%if app.user.image == null %}
+                                                        <img src="{{ asset('assets/images/default.png')}}" />
+                                                  {%else%}
+                                                        <img src="{{ asset('uploads/users/'~app.user.image)}}" />
+                                                  {%endif%}
                                                 </div>
                                             </div><!--username-dt end-->
                                             <div class="user-specs">
@@ -93,7 +97,11 @@
                                 <div class="main-ws-sec">
                                     <div class="post-topbar">             
                                         <div class="user-picy ">
-                                             <img src="{{ asset('uploads/users/'~app.user.image)}}" />
+                                            {%if app.user.image == null %}
+                                                <img src="{{ asset('assets/images/default.png')}}" />
+                                            {%else%}
+                                                <img src="{{ asset('uploads/users/'~app.user.image)}}" />
+                                            {%endif%}
                                          <div class="post mt-4">
                                            <h4>Crear tu publicación</h4>
                                         </div>
@@ -114,10 +122,14 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                     <img style=" width: 50px; height: 50px;" src="{{ asset('uploads/users/'~app.user.image)}}" />
+                                                        {%if publication.user.image == null %}
+                                                          <img style=" width: 50px; height: 50px;" src="{{asset('assets/images/default.png')}}" />
+                                                      {%else%}
+                                                           <img style=" width: 50px; height: 50px;" src="{{ asset('uploads/users/'~publication.user.image)}}" />
+                                                      {%endif%}
                                                     <div class="usy-name">
-                                                        <h3>{{app.user.name}} {{app.user.surname}}</h3>
-                                                        <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                        <h3>{{publication.user.name}} {{publication.user.surname}}</h3>
+                                                        <span><img src="images/clock.png" alt="">{{ publication.createdAt|date('d-m-y') }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="ed-opts">
