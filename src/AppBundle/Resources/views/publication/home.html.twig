@@ -129,7 +129,7 @@
                                                       {%endif%}
                                                     <div class="usy-name">
                                                         <h3>{{publication.user.name}} {{publication.user.surname}}</h3>
-                                                        <span><img src="images/clock.png" alt="">{{ publication.createdAt|date('d-m-y') }}</span>
+                                                        <span><img src="images/clock.png" alt="">{{ publication.createdAt|long_time }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="ed-opts">
