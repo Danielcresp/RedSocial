@@ -140,6 +140,17 @@ body{
 }
 
 
+
+.pud-image img{
+    width: 492px;
+    text-align: center;
+    display: block;
+    margin: opx auto;
+    transition: all 300ms;
+}
+
+
+
 /* ---------------------------------------------------------------------------------------------------------Miembros */
 /*
 /* ============== companies-info ============== */

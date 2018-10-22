@@ -137,6 +137,23 @@
                                             <div class="job_descp">
                                                 <h3>Hora</h3>
                                                 <p>{{publication.text}} &nbsp<a href="#" title="">ver mas</a></p>
+
+                                                {%if (publication.user.id is defined) and (publication.user.id == app.user.id) %}
+                                                    <span data-id="{{publication.id}}" class="btn-delete-pub glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                {%endif%}
+                                                
+                                                {% if(publication.document is defined) and (publication.document != null)%}
+                                                    <a href="{{ asset('uploads/publications/documents/'~publication.document)}}"
+                                                       class="btn-doc glyphicon glyphicon-save" aria-hidden="true" target="_blank">
+                                                    </a>
+                                                {%endif%}
+                                                
+                                                {% if(publication.image is defined) and (publication.image != null)%}
+                                                    <div class="clearfix"></div>
+                                                    <div class="pub-image">
+                                                       <img  style="width: 497px;" src="{{ asset('uploads/publications/images/'~publication.image)}}" />
+                                                    </div>
+                                                {%endif%}
                                             </div>
 
                                             <div class="job-status-bar">
