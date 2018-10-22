@@ -140,7 +140,9 @@ body{
 }
 
 
-
+#option{
+    cursor: pointer;
+}
 .pud-image img{
     width: 492px;
     text-align: center;
@@ -818,6 +820,15 @@ body{
     width: 100%;
     height: 100%;
 }
+
+.ed-opts > a{
+    -webkit-transition: all 0.4s ease-in;
+    -moz-transition: all 0.4s ease-in;
+    -ms-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+}
+
 .ed-opts {
     float: right;
     position: relative;
@@ -830,6 +841,8 @@ body{
     position: relative;
     left: 13px;
 }
+
+/* Sub Menu de opciones */ 
 .ed-options {
     position: absolute;
     top: 100%;
@@ -864,6 +877,11 @@ body{
     font-size: 14px;
     font-weight: 600;
 }
+
+.ed-options{
+    list-style: none;
+}
+
 .ed-opts > a:hover {
     color: #2196F3;
 }

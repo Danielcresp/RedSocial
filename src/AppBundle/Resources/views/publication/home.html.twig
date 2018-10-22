@@ -88,7 +88,7 @@
                                     </div><!--post-topbar end-->
                              <div class="box-content">
                                 {% for publication in pagination %}
-                                    <div class="posts-section">
+                                    <div class="posts-section" id="post">
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
@@ -102,45 +102,18 @@
                                                         <span><img src="images/clock.png" alt="">{{ publication.createdAt|long_time }}</span>
                                                     </div>
                                                 </div>
+
+                                               {%if (publication.user.id is defined) and (publication.user.id == app.user.id) %}
+
                                                 <div class="ed-opts">
-                                                    <a href="#" title="" class="ed-opts-open"><ion-icon name="more"></ion-icon></i></a>
-                                                    <ul class="ed-options">
-                                                        <li><a href="#" title="">Edit Post</a></li>
-                                                        <li><a href="#" title="">Unsaved</a></li>
-                                                        <li><a href="#" title="">Unbid</a></li>
-                                                        <li><a href="#" title="">Close</a></li>
-                                                        <li><a href="#" title="">Hide</a></li>
-                                                    </ul>
-                                                        <!-- <ul class="nav navbar-nav ml-auto">
-                                                         <li class="nav-item dropdown">
-                                                        
-                                                            <ion-icon name="more"></ion-icon>
-                                                                 <a class="text-light nav-link dropdown-toggle ed-opts-open" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                                                 </a>
-                                                                 <div class="dropdown-menu ed-options">
-                                                                   <a class="dropdown-item" href="#">
-                                                                    Edit Post
-                                                                   </a>
-                                                                   <a class="dropdown-item" href="">
-                                                                    Unsaved
-                                                                   </a>
-                                                                   <a class="dropdown-item" href="">
-                                                                     <ion-icon name="log-in"></ion-icon>
-                                                                     Salir
-                                                                   </a>
-                                                             </div>
-                                                           </li> 
-                                                                                                              </ul> -->
+                                                   <li><a id="option" class="btn-delete-pub" data-id="{{publication.id}}"  title=""><ion-icon name="trash"></ion-icon></span>&nbsp Eliminar</a></li>
                                                 </div>
+                                                {%endif%}
                                             </div>
                                             
                                             <div class="job_descp">
                                                 <h3>Hora</h3>
                                                 <p>{{publication.text}} &nbsp<a href="#" title="">ver mas</a></p>
-
-                                                {%if (publication.user.id is defined) and (publication.user.id == app.user.id) %}
-                                                    <span data-id="{{publication.id}}" class="btn-delete-pub glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                                {%endif%}
                                                 
                                                 {% if(publication.document is defined) and (publication.document != null)%}
                                                     <a href="{{ asset('uploads/publications/documents/'~publication.document)}}"
