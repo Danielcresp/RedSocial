@@ -1,40 +1,9 @@
 {% extends 'AppBundle:layouts:layout.html.twig' %}
+{% block javascripts %}
+    {{parent() }}
+    <script type="text/javascript" src="{{ asset('assets/js/custom/home.js') }}"></script>
+{% endblock %}
 {% block content %}
-<!--     <div class="container">
-        <div class="row">
-            <div id="timeline" class="col-lg-7 box-form timeline pull-left">
-                <h1 class="box-header">Timeline</h1>
-                <div class="box-content">
-                    Publicasiones List
-                </div>
-           </div>
-           <div id="user-card" class="col-lg-4 pull-right box-form">
-               <div class="avatar">
-                       {%if app.user.image == null %}
-                           <img src="{{ asset('assets/images/default.png')}}" />
-                       {%else%}
-                           <img src="{{ asset('uploads/users/'~app.user.image)}}" />
-                       {%endif%}
-                </div>
-                 <div class="name-surname">
-                <a href="">
-                    {{app.user.name}} {{app.user.surname}}
-                </a>
-                <div class="clearfix"></div>
-                <span class="nickname">
-                    {{app.user.nick}}
-                </span>
-            </div>
-
-            <div class="clearfix"></div>
-                 
-            </div>
-
-            <div id="new-publication" class="col-lg-4 pull-left box-form">
-            <h1 class="box-header">Crear publicación</h1>
-           </div>
-        </div>
-   </div> -->
    <div class="main-section"> <!-- color #2196F3 -->
                 <div class="container">
                     <div class="main-section-data">
@@ -117,6 +86,7 @@
                                             </ul>
                                         </div><!--post-st end-->
                                     </div><!--post-topbar end-->
+                             <div class="box-content">
                                 {% for publication in pagination %}
                                     <div class="posts-section">
                                         <div class="post-bar">
@@ -183,12 +153,13 @@
     
                                     </div><!--posts-section end-->
                                     {% endfor %}
+                                 </div>
                                     <div class="job-status-bar">
                                         <div class="navigation">
                                             {{ knp_pagination_render(pagination) }}
                                         </div>
-                                  </div>
-                              </div><!--main-ws-sec end-->
+                                    </div>
+                                </div><!--main-ws-sec end-->
                             </div>
                         
                             <div class="col-lg-3 pd-right-none no-pd">

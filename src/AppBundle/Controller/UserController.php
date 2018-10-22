@@ -135,7 +135,7 @@ class UserController extends Controller {
                             $file_name = $user->getId() . time() . "." . $ext; /* el nombre del fichero con el id del user y tipo de extencion */
                             $file->move("uploads/users", $file_name); /* en  que carpeta se gurdara la imagen */
 
-                            $user->getImagen($file_name);
+                            $user->getImage($file_name);
                         }
                     } else {
                         $user->setImage($user_image);
