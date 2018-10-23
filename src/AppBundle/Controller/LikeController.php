@@ -44,13 +44,13 @@ class LikeController extends Controller {
 		$user = $this->getUser();
 
 		$em = $this->getDoctrine()->getManager();
-		$like_repo = $em->getRepository('BackendBundle:Like');
-		$like = $like_repo->findOneBy(array(
+		$like_repo = $em->getRepository('BackendBundle:Like');  /*tabla de like*/
+		$like = $like_repo->findOneBy(array(   /*buscar el registro del like*/
 			'user' => $user,
 			'publication' => $id
 		));
 
-		$em->remove($like);
+		$em->remove($like); /*remover el registro de like*/
 		$flush = $em->flush();
 
 		if ($flush == null) {

@@ -71,9 +71,9 @@ function buttons(){
 		});
 	});
 	
-	/*$(".btn-unlike").unbind('click').click(function(){
+	$(".btn-unstart").unbind('click').click(function(){
 		$(this).addClass("hidden");
-		$(this).parent().find('.btn-like').removeClass("hidden");
+		$(this).parent().find('.btn-start').removeClass("hidden");
 		
 		$.ajax({
 			url: URL+'/unlike/'+$(this).attr("data-id"),
@@ -82,5 +82,5 @@ function buttons(){
 				console.log(response);
 			}
 		});
-	});*/
+	});
 }
