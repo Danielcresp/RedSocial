@@ -41,8 +41,6 @@ $(document).ready(function() {
 });
 
 function buttons(){
-
-
 	$(".btn-img").unbind("click").click(function(){
 		$(this).parent().find('.pub-image').fadeToggle();
 	});
@@ -60,9 +58,9 @@ function buttons(){
 		});
 	});
 	
-/*	$(".btn-like").unbind('click').click(function(){
+	$(".btn-start").unbind('click').click(function(){
 		$(this).addClass("hidden");
-		$(this).parent().find('.btn-unlike').removeClass("hidden");
+		$(this).parent().find('.btn-unstart').removeClass("hidden");
 		
 		$.ajax({
 			url: URL+'/like/'+$(this).attr("data-id"),
@@ -73,7 +71,7 @@ function buttons(){
 		});
 	});
 	
-	$(".btn-unlike").unbind('click').click(function(){
+	/*$(".btn-unlike").unbind('click').click(function(){
 		$(this).addClass("hidden");
 		$(this).parent().find('.btn-like').removeClass("hidden");
 		

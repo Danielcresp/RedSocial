@@ -99,7 +99,7 @@
                                                       {%endif%}
                                                     <div class="usy-name">
                                                         <h3>{{publication.user.name}} {{publication.user.surname}}</h3>
-                                                        <span><img src="images/clock.png" alt="">{{ publication.createdAt|long_time }}</span>
+                                                        <span><ion-icon name="time"></ion-icon>{{ publication.createdAt|long_time }}</span>
                                                     </div>
                                                 </div>
 
@@ -131,10 +131,25 @@
 
                                             <div class="job-status-bar">
                                                 <ul class="like-com">
-                                                    <li>
-                                                        <a href="#"><ion-icon name="star-outline"></ion-icon></i>Star</a>
+                                                    <li class="start">
+                                                        <a data-id="{{publication.id}}" 
+                                                        class="btn-start cli"
+                                                        style="font-weight: bold; font-size: bold;"
+                                                         >
+                                                        <ion-icon name="star-outline" style="font-size: 1.5em;"></ion-icon></i>
+                                                            Me estrella
+                                                        </a>
+
+                                                        <a data-id="{{publication.id}}" 
+                                                        class="btn-unstart cli hidden"
+                                                        style="color:orange; font-weight: bold; font-size: bold;"
+                                                         >
+                                                        <ion-icon name="star-outline" style="font-size: 1.5em;"></ion-icon></i>
+                                                            Me estrella
+                                                        </a>
                                                         <span>25</span>
-                                                    </li> 
+                                                    </li>
+
                                                     <li><a href="#" title="" class="com"><ion-icon name="chatboxes"></ion-icon> Comment 15</a></li>
                                                 </ul>
                                                 <a><ion-icon name="eye"></ion-icon>Vistos 50</a>

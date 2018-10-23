@@ -1,0 +1,4 @@
+like_publication:
+    path: /like/{id}
+    defaults: { _controller: AppBundle:Like:like, id:null }
+    
