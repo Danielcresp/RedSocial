@@ -133,7 +133,11 @@
                                                 <ul class="like-com">
                                                     <li class="start">
                                                         <a data-id="{{publication.id}}" 
-                                                        class="btn-start cli"
+                                                        class="btn-start cli
+                                                        {% if app.user|liked(publication)== true %}
+                                                            hidden
+                                                        {% endif %}
+                                                        "
                                                         style="font-weight: bold; font-size: bold;"
                                                          >
                                                         <ion-icon name="star-outline" style="font-size: 1.5em;"></ion-icon></i>
@@ -141,7 +145,11 @@
                                                         </a>
 
                                                         <a data-id="{{publication.id}}" 
-                                                        class="btn-unstart cli hidden"
+                                                        class="btn-unstart cli
+                                                        {% if app.user|liked(publication)== false %}
+                                                            hidden
+                                                        {% endif %}
+                                                        "
                                                         style="color:orange; font-weight: bold; font-size: bold;"
                                                          >
                                                         <ion-icon name="star-outline" style="font-size: 1.5em;"></ion-icon></i>
