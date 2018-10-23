@@ -621,12 +621,38 @@ body{
 }
 .user-fw-status li h4 {
     color: #686868;
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 17px;
+    margin-bottom: 10px; 
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-style: inherit;
+    font-variant-ligatures: inherit;
+    font-variant-caps: inherit;
+    font-variant-numeric: inherit;
+    font-variant-east-asian: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    line-height: inherit;
+    font-family: inherit;
 }
 .user-fw-status span {
     color: #000000;
-    font-size: 20px;
+    font-size: 17px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-style: inherit;
+    font-variant-ligatures: inherit;
+    font-variant-caps: inherit;
+    font-variant-numeric: inherit;
+    font-variant-east-asian: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
 }
 .user-fw-status li a {
     color: #2196F3;

@@ -26,14 +26,23 @@
                                                 <span> {{app.user.nick}} </span>
                                             </div>
                                         </div><!--user-profile end-->
+                                        {% set user_stats = app.user|user_stats %}
                                         <ul class="user-fw-status">
                                             <li>
-                                                <!-- <h4>Siguiendo</h4>
-                                                <span>34</span> -->
+                                                 <h4>Siguiendo</h4>
+                                                <span>{{user_stats.following}}</span>
                                             </li>
                                             <li>
-                                                <!-- <h4>Seguidores</h4>
-                                                <span>155</span> -->
+                                                <h4>Seguidores</h4>
+                                                <span>{{user_stats.followers}}</span>
+                                            </li>
+                                            <li>
+                                                <h4>Publicationes</h4>
+                                                <span>{{user_stats.publications}}</span>
+                                            </li>
+                                            <li>
+                                                <h4>Estrella</h4>
+                                                <span>{{user_stats.likes}}</span>
                                             </li>
                                             <li>
                                                 <a href="#" title="">Ver Perfil</a>
