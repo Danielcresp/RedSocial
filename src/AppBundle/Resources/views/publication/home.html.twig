@@ -22,7 +22,9 @@
                                                 </div>
                                             </div><!--username-dt end-->
                                             <div class="user-specs">
-                                                <h3> {{app.user.name}} {{app.user.surname}}</h3>
+                                                <a href="{{ path('user_profile', {'nickname':app.user.nick}) }}">
+                                                    <h3> {{app.user.name}} {{app.user.surname}}</h3>
+                                                </a>
                                                 <span> {{app.user.nick}} </span>
                                             </div>
                                         </div><!--user-profile end-->
@@ -45,7 +47,7 @@
                                                 <span>{{user_stats.likes}}</span>
                                             </li>
                                             <li>
-                                                <a href="#" title="">Ver Perfil</a>
+                                                <a href="{{ path('user_profile', {'nickname':app.user.nick}) }}" title="">Ver Perfil</a>
                                             </li>
                                         </ul>
                                     </div><!--user-data end-->
@@ -107,8 +109,10 @@
                                                            <img style=" width: 50px; height: 50px;" src="{{ asset('uploads/users/'~publication.user.image)}}" />
                                                       {%endif%}
                                                     <div class="usy-name">
-                                                        <h3>{{publication.user.name}} {{publication.user.surname}}</h3>
-                                                        <span><ion-icon name="time"></ion-icon>{{ publication.createdAt|long_time }}</span>
+                                                        <a href="{{ path('user_profile', {'nickname':publication.user.nick}) }}">
+                                                            <h3>{{publication.user.name}} {{publication.user.surname}}</h3>
+                                                        </a>
+                                                        <span><ion-icon name="time"></ion-icon> &nbsp{{ publication.createdAt|long_time }}</span>
                                                     </div>
                                                 </div>
 
@@ -121,8 +125,9 @@
                                             </div>
                                             
                                             <div class="job_descp">
-                                                <h3>Hora</h3>
-                                                <p>{{publication.text}} &nbsp<a href="#" title="">ver mas</a></p>
+                                                <!-- <h3>Hora</h3> -->
+                                                <h3></h3>
+                                                <p>{{publication.text}} &nbsp<!-- <a href="#" title="">ver mas</a> --></p>
                                                 
                                                 {% if(publication.document is defined) and (publication.document != null)%}
                                                     <a href="{{ asset('uploads/publications/documents/'~publication.document)}}"
@@ -164,25 +169,26 @@
                                                         <ion-icon name="star-outline" style="font-size: 1.5em;"></ion-icon></i>
                                                             Me estrella
                                                         </a>
-                                                        <span>25</span>
+                                                        <!-- <span>25</span> -->
                                                     </li>
 
-                                                    <li><a href="#" title="" class="com"><ion-icon name="chatboxes"></ion-icon> Comment 15</a></li>
+                                                    <!-- <li><a href="#" title="" class="com"><ion-icon name="chatboxes"></ion-icon>&nbsp Comment 15</a></li> -->
                                                 </ul>
-                                                <a><ion-icon name="eye"></ion-icon>Vistos 50</a>
+                                                <!-- <a><ion-icon name="eye"></ion-icon>&nbspVistos 50</a> -->
                                             </div>
                                         </div><!--post-bar end-->
     
                                     </div><!--posts-section end-->
                                     {% endfor %}
-                                 </div>
+                                 
                                     <div class="job-status-bar">
                                         <div class="navigation">
                                             {{ knp_pagination_render(pagination) }}
                                         </div>
                                     </div>
-                                </div><!--main-ws-sec end-->
-                            </div>
+                                </div> <!-- box-content  end-->
+                              </div><!--main-ws-sec end-->
+                          </div>
                         
                             <div class="col-lg-3 pd-right-none no-pd">
                                 <div class="right-sidebar">

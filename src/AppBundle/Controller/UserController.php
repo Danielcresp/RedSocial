@@ -203,6 +203,39 @@ class UserController extends Controller {
                     'pagination' => $pagination
         ));
     }
-    
+
+    public function profileAction(Request $request, $nickname = null) {
+        $em = $this->getDoctrine()->getManager();
+
+        if ($nickname != null) { /*si el nick viene vacio*/
+            $user_repo = $em->getRepository("BackendBundle:User"); /*tabla de user*/
+            $user = $user_repo->findOneBy(array("nick" => $nickname)); /*busca el uusario con el nick*/
+        } else {
+            $user = $this->getUser(); /*se carga el perfil en sesion*/
+        }
+
+        if (empty($user) || !is_object($user)) {  /*si el usuario  esta vasio y  no es un objeto retorna*/
+            return $this->redirect($this->generateUrl('home_publications'));
+        }
+
+        $user_id = $user->getId(); /*obtiene las publicASIONES DEL USUARIO SELECT*/
+        $dql = "SELECT p FROM BackendBundle:Publication p WHERE p.user = $user_id ORDER BY p.id DESC";
+        $query = $em->createQuery($dql);
+
+        $paginator = $this->get('knp_paginator'); /*PAGINAR LAS PUBLIBLIACIONES*/
+        $publications = $paginator->paginate(
+                $query, $request->query->getInt('page', 1), 5
+        );
+
+        $img = $paginator->paginate(
+                $query, $request->query->getInt('page', 1), 1
+        );
+        
+        return $this->render('AppBundle:User:profile.html.twig', array( /*la vista del usuario*/
+            'user' => $user, 
+            'pagination' => $publications,
+            'imagen' =>$img
+        ));
+    }
 
 }

@@ -76,7 +76,7 @@
                            {{app.user.name}} {{app.user.surname}}
                          </a>
                          <div class="dropdown-menu">
-                           <a class="dropdown-item" href="#">
+                           <a class="dropdown-item" href="{{ path('user_profile', {'nickname':app.user.nick}) }}">
                              <ion-icon name="person"></ion-icon>&nbsp;
                              Mis perfil
                            </a>
